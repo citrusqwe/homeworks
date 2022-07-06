@@ -1,0 +1,45 @@
+.container {
+  max-width: 923px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.page {
+  &__header {
+    display: flex;
+    margin-bottom: 24px;
+
+    &.big-image {
+      display: block;
+
+      .page__placeholder {
+        max-width: 370px;
+        max-height: 216px;
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  &__placeholder {
+    display: block;
+    max-width: 238px;
+    max-height: 216px;
+    width: 100%;
+    margin-right: 24px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  &__body {
+    display: flex;
+
+    &.with-placeholder {
+      .page__placeholder {
+        margin: 0;
+        margin-left: 24px;
+      }
+    }
+  }
+}
