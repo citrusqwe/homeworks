@@ -1,0 +1,68 @@
+.not-found {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__title {
+    font-size: 144px;
+    line-height: 169px;
+    position: relative;
+
+    img {
+      left: -100px;
+      z-index: -1;
+    }
+  }
+
+  &__descr {
+    font-size: 48px;
+    line-height: 56px;
+    text-transform: capitalize;
+  }
+
+  &__text {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  &__btn {
+    font-size: 30px;
+    line-height: 35px;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    color: #4E1D1D;
+    border: none;
+    background: #5FCEF1;
+    border-radius: 25px;
+    transition: 0.3s;
+    margin-top: 60px;
+
+    &:hover {
+      transition: 0.3s;
+      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &__left-top-circle {
+    top: 0;
+    left: 0;
+  }
+
+  &__left-bottom-circle {
+    bottom: 0;
+    left: 0;
+  }
+
+  &__right-top-circle {
+    top: 0;
+    right: 0;
+  }
+}
+
+
+.circle {
+  position: absolute;
+}
