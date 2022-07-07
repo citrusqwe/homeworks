@@ -11,33 +11,8 @@ import {FifthPageComponent} from './pages/fifth-page/fifth-page.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {RouterModule, Routes} from "@angular/router";
 import {LayoutComponent} from './layout/layout.component';
+import {bookRoutes} from "./book.routes";
 
-const routes: Routes = [
-  {
-    path: 'book', component: LayoutComponent, children: [
-      {
-        path: '1', component: FirstPageComponent
-      }, {
-        path: '2', component: SecondPageComponent
-      }, {
-        path: '3', component: ThirdPageComponent
-      }, {
-        path: '4', component: FourthPageComponent
-      }, {
-        path: '5', component: FifthPageComponent
-      },
-      {
-        path: '', redirectTo: '1', pathMatch: 'full'
-      },
-    ]
-  },
-  {
-    path: '', redirectTo: 'book', pathMatch: 'full'
-  },
-  {
-    path: '**', component: NotFoundComponent
-  },
-]
 
 @NgModule({
   declarations: [
@@ -54,7 +29,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(bookRoutes)
   ],
   exports: [BookComponent, NotFoundComponent]
 })
