@@ -1,5 +1,6 @@
 <div class="pagination">
-  <a class="pagination__item active">1</a>
-  <a class="pagination__item">2</a>
-  <a class="pagination__item">3</a>
+  <a [routerLink]="page.path" class="pagination__item active" *ngFor="let page of pages"
+     class="pagination__item" routerLinkActive="active">
+    {{page.path}}
+  </a>
 </div>

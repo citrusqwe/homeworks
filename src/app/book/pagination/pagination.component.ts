@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-pagination',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {
+
+  }
+
+  pages = this.router.config[0].children?.filter(route => !!route.path)
 
   ngOnInit(): void {
+
   }
 
 }
