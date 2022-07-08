@@ -1,4 +1,5 @@
-import {Routes} from "@angular/router";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from "@angular/router";
 import {LayoutComponent} from "./layout/layout.component";
 import {FirstPageComponent} from "./pages/first-page/first-page.component";
 import {SecondPageComponent} from "./pages/second-page/second-page.component";
@@ -7,7 +8,7 @@ import {FourthPageComponent} from "./pages/fourth-page/fourth-page.component";
 import {FifthPageComponent} from "./pages/fifth-page/fifth-page.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
 
-export const bookRoutes: Routes = [
+const bookRoutes: Routes = [
   {
     path: 'book', component: LayoutComponent, children: [
       {
@@ -33,3 +34,12 @@ export const bookRoutes: Routes = [
     path: '**', component: NotFoundComponent
   },
 ]
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(bookRoutes)
+  ],
+  exports: [RouterModule]
+})
+export class BookRoutingModule {
+}

@@ -9,9 +9,9 @@ import {ThirdPageComponent} from './pages/third-page/third-page.component';
 import {FourthPageComponent} from './pages/fourth-page/fourth-page.component';
 import {FifthPageComponent} from './pages/fifth-page/fifth-page.component';
 import {NotFoundComponent} from './not-found/not-found.component';
-import {RouterModule, Routes} from "@angular/router";
+import {RouterModule} from "@angular/router";
 import {LayoutComponent} from './layout/layout.component';
-import {bookRoutes} from "./book.routes";
+import {BookRoutingModule} from "./book-routing.module";
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import {bookRoutes} from "./book.routes";
   ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(bookRoutes)
+    BookRoutingModule
   ],
   exports: [BookComponent, NotFoundComponent]
 })
