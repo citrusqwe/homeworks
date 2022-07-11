@@ -8,10 +8,13 @@ import {SecondPageComponent} from './pages/second-page/second-page.component';
 import {ThirdPageComponent} from './pages/third-page/third-page.component';
 import {FourthPageComponent} from './pages/fourth-page/fourth-page.component';
 import {FifthPageComponent} from './pages/fifth-page/fifth-page.component';
-import {NotFoundComponent} from './not-found/not-found.component';
-import {RouterModule} from "@angular/router";
-import {LayoutComponent} from './layout/layout.component';
 import {BookRoutingModule} from "./book-routing.module";
+import {LayoutComponent} from "./layout/layout.component";
+import {TableComponent} from './table/table.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatSortModule} from "@angular/material/sort";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -24,14 +27,18 @@ import {BookRoutingModule} from "./book-routing.module";
     ThirdPageComponent,
     FourthPageComponent,
     FifthPageComponent,
-    NotFoundComponent,
-    LayoutComponent
+    LayoutComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,
-    BookRoutingModule
+    BookRoutingModule,
+    MatTableModule,
+    MatExpansionModule,
+    MatSortModule,
+    MatButtonModule
   ],
-  exports: [BookComponent, NotFoundComponent]
+  exports: [BookComponent]
 })
 export class BookModule {
 }

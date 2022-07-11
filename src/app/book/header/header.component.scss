@@ -4,4 +4,17 @@
   padding: 16px 40px;
   border-bottom: 1px solid #D8D8D8;
   margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
 }

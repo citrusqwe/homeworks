@@ -1,0 +1,41 @@
+<table mat-table
+       [dataSource]="mappedData" multiTemplateDataRows
+       class="mat-elevation-z8"
+       matSort
+>
+  <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{column | titlecase}} </th>
+    <td mat-cell *matCellDef="let element">
+      {{element[column]}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+      <div class="detail"
+           [@detailExpand]="element.position === expandedElement?.position ? 'expanded' : 'collapsed'">
+        <table mat-table [dataSource]="element.extendedData">
+          <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumnsInside">
+            <td mat-cell *matCellDef="let element">
+              {{element[column]}}
+            </td>
+          </ng-container>
+          <tr mat-row *matRowDef="let element; columns: displayedColumnsInside;"
+              class="element-row">
+          </tr>
+        </table>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+  <tr mat-row *matRowDef="let element; columns: displayedColumns;"
+      class="element-row"
+      [class.expanded-row]="expandedElement?.position === element.position"
+      (click)="expandedElement = expandedElement?.position === element.position ? null : element">
+  </tr>
+
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+</table>
+<button mat-button (click)="addRandomData()">Add random data</button>

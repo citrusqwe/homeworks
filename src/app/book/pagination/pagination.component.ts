@@ -12,10 +12,10 @@ export class PaginationComponent implements OnInit {
 
   }
 
-  pages = this.router.config[0].children?.filter(route => !!route.path)
+  pages = ['1', '2', '3', '4', '5']
 
   ngOnInit(): void {
-
+    console.log(this.router)
   }
 
 }
