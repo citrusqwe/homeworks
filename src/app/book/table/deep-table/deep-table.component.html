@@ -1,0 +1,10 @@
+<table mat-table [dataSource]="extendedData">
+  <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumnsInside">
+    <td mat-cell *matCellDef="let element">
+      {{element[column]}}
+    </td>
+  </ng-container>
+  <tr mat-row *matRowDef="let element; columns: displayedColumnsInside;"
+      class="element-row">
+  </tr>
+</table>

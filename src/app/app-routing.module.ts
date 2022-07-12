@@ -2,13 +2,22 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {LayoutComponent} from "./book/layout/layout.component";
+import {RegisterComponent} from "./auth/register/register.component";
+import {LoginComponent} from "./auth/login/login.component";
 
 const routes: Routes = [
   {
     path: 'book', component: LayoutComponent, loadChildren: () => import('./book/book.module').then(m => m.BookModule)
   },
   {
-    path: '', redirectTo: 'book', pathMatch: 'full'
+    path: '', redirectTo: 'auth', pathMatch: 'full'
+  },
+  {
+    path: 'auth', children: [
+      {path: 'register', component: RegisterComponent},
+      {path: 'login', component: LoginComponent},
+      {path: '', redirectTo: 'login', pathMatch: 'full'}
+    ]
   },
   {
     path: '**', component: NotFoundComponent

@@ -14,7 +14,6 @@ const routes: Routes = [
   {path: '4', component: FourthPageComponent},
   {path: '5', component: FifthPageComponent},
   {path: 'table', component: TableComponent},
-  {path: '', redirectTo: '/book/1', pathMatch: 'full'},
 ]
 
 @NgModule({
