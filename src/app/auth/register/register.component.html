@@ -4,15 +4,25 @@
       <h2 class="auth__title">Регистрация </h2>
       <p class="auth__text">Already have an Account ? <a routerLink="/auth/login">Log in</a></p>
       <form class="auth__form auth-form" [formGroup]="registerFormGroup" (ngSubmit)="onSubmit()">
-        <label class="auth-form__label" for="name">
+        <label class="auth-form__label" for="name" [ngClass]="{
+            error: registerFormGroup.controls['name'].invalid && registerFormGroup.controls['name'].touched
+          }">
           Name
           <input class="auth-form__input" id="name" type="text" formControlName="name">
         </label>
-        <label class="auth-form__label" for="email">
+        <label class="auth-form__label" for="email" [ngClass]="{
+            error: registerFormGroup.controls['email'].invalid && registerFormGroup.controls['email'].touched
+          }">
           Email
           <input class="auth-form__input" id="email" type="email" formControlName="email">
+          <div class="alert"
+               *ngIf="registerFormGroup.controls['email'].invalid && registerFormGroup.controls['email'].touched">
+            Некорректный email
+          </div>
         </label>
-        <label class="auth-form__label" for="password">
+        <label class="auth-form__label" for="password" [ngClass]="{
+            error: registerFormGroup.controls['password'].invalid && registerFormGroup.controls['password'].touched
+          }">
           Password
           <input class="auth-form__input" id="password" type="password" formControlName="password">
         </label>

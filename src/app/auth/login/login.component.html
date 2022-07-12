@@ -4,11 +4,19 @@
       <h2 class="auth__title">Авторизация</h2>
       <p class="auth__text">Does not have an account ? <a routerLink="/auth/register">Register</a></p>
       <form class="auth__form auth-form" [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
-        <label class="auth-form__label" for="email">
+        <label class="auth-form__label" for="email" [ngClass]="{
+            error: loginFormGroup.controls['email'].invalid && loginFormGroup.controls['email'].touched
+          }">
           Email
           <input class="auth-form__input" id="email" type="email" formControlName="email">
+          <div class="alert"
+               *ngIf="loginFormGroup.controls['email'].invalid && loginFormGroup.controls['email'].touched">
+            Некорректный email
+          </div>
         </label>
-        <label class="auth-form__label" for="password">
+        <label class="auth-form__label" for="password" [ngClass]="{
+            error: loginFormGroup.controls['password'].invalid && loginFormGroup.controls['password'].touched
+          }">
           Password
           <input class="auth-form__input" id="password" type="password" formControlName="password">
         </label>

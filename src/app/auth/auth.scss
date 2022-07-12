@@ -60,6 +60,19 @@
     display: flex;
     flex-direction: column;
 
+    &.error {
+      color: #e13838;
+
+      input {
+        color: #e13838;
+        border-color: #e13838;
+      }
+
+      .alert {
+        margin-top: 10px;
+      }
+    }
+
     &:not(:last-child) {
       margin-bottom: 30px;
     }
