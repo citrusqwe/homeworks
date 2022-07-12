@@ -30,5 +30,7 @@ tr.element-row:not(.expanded-row):active {
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
+  flex: 1;
+  width: 100%;
 }
 

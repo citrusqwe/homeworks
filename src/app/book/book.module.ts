@@ -15,6 +15,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatSortModule} from "@angular/material/sort";
 import {MatButtonModule} from "@angular/material/button";
+import { DeepTableComponent } from './table/deep-table/deep-table.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {MatButtonModule} from "@angular/material/button";
     FourthPageComponent,
     FifthPageComponent,
     LayoutComponent,
-    TableComponent
+    TableComponent,
+    DeepTableComponent
   ],
   imports: [
     CommonModule,

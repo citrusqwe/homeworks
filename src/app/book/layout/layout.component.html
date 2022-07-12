@@ -1,5 +1,5 @@
 <app-header></app-header>
 <div class="container">
   <router-outlet></router-outlet>
-  <app-pagination></app-pagination>
+  <app-pagination *ngIf="access"></app-pagination>
 </div>

@@ -46,7 +46,6 @@ export class TableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatTable) table: any;
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  displayedColumnsInside: string[] = ['position', 'name', 'weight', 'displayedInCell'];
   expandedElement: TableItem | null = null;
 
   data: TableItem[] = [
@@ -73,17 +72,15 @@ export class TableComponent implements OnInit, AfterViewInit {
     {position: 73, name: 'ElementName', weight: 228.65816441155462, displayedInCell: 'Is not gas'},
     {position: 6, name: 'ElementName', weight: 767.8192773812831, displayedInCell: 'Is not gas'},
   ]
-
-  expandedData = this.data.map(el => ({
+  
+  mappedData = new MatTableDataSource(this.data.map(el => ({
     ...el,
     extendedData: this.extendedData
-  }))
-
-  mappedData = new MatTableDataSource(this.expandedData)
+  })))
 
   addRandomData() {
     const element = Math.floor(Math.random() * this.data.length);
-    this.mappedData.data = [...this.mappedData.data, this.expandedData[element]];
+    this.mappedData.data = [...this.mappedData.data, this.mappedData.data[element]];
     this.table!.renderRows();
   }
 
