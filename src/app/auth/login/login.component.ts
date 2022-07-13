@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   constructor() {
     this.loginFormGroup = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.min(6), Validators.max(30)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(30)]),
     })
   }
 
@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     console.log(this.loginFormGroup)
+    this.loginFormGroup.reset()
   }
 
 }

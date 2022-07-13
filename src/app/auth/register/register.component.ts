@@ -12,9 +12,9 @@ export class RegisterComponent implements OnInit {
 
   constructor() {
     this.registerFormGroup = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.min(3), Validators.max(20)]),
+      name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.min(6), Validators.max(30)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(30)]),
     })
   }
 
@@ -23,5 +23,6 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     console.log(this.registerFormGroup)
+    this.registerFormGroup.reset()
   }
 }
