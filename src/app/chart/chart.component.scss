@@ -1,5 +1,18 @@
 .chart {
   margin: 50px auto;
+  padding: 0 20px;
+
+  &__wrapper {
+    display: flex;
+  }
+}
+
+.assemblyChart {
   width: 1000px;
   height: 400px;
+}
+
+.assemblyChartCircle {
+  width: 500px;
+  height: 300px;
 }
