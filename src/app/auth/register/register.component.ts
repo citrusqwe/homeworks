@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ export class RegisterComponent implements OnInit {
 
   registerFormGroup: FormGroup;
 
-  constructor() {
+  constructor(private authService: AuthService) {
     this.registerFormGroup = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -23,6 +24,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     console.log(this.registerFormGroup)
+    this.authService.getDataFromYandex()
     this.registerFormGroup.reset()
   }
 }

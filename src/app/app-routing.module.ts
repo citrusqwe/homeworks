@@ -4,6 +4,7 @@ import {NotFoundComponent} from "./not-found/not-found.component";
 import {LayoutComponent} from "./book/layout/layout.component";
 import {RegisterComponent} from "./auth/register/register.component";
 import {LoginComponent} from "./auth/login/login.component";
+import {ChartComponent} from "./chart/chart.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'login', pathMatch: 'full'}
     ]
   },
+  {path: 'chart', component: ChartComponent},
   {
     path: '**', component: NotFoundComponent
   },

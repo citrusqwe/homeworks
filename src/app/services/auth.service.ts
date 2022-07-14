@@ -10,6 +10,6 @@ export class AuthService {
   }
 
   getDataFromYandex() {
-    this.http.get('https://ya.ru/').subscribe((data: any) => console.log(data));
+    return this.http.get('https://ya.ru/')
   }
 }
