@@ -99,7 +99,7 @@
     line-height: 24px;
     color: #696969;
     transition: filter 0.3s;
-    
+
     &:disabled {
       filter: opacity(0.3);
     }
@@ -109,4 +109,9 @@
       filter: opacity(0.7);
     }
   }
+}
+
+.alert {
+  margin-top: 5px;
+  color: #e13838;
 }

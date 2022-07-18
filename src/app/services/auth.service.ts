@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {Router} from "@angular/router";
+import {from, Observable, Subject} from "rxjs";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 interface User {
   name?: string
@@ -14,7 +16,7 @@ interface User {
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private auth: AngularFireAuth, private router: Router) {
+  constructor(private http: HttpClient, private auth: AngularFireAuth, private router: Router, private _snackBar: MatSnackBar) {
   }
 
   getDataFromYandex() {
@@ -26,23 +28,23 @@ export class AuthService {
   }
 
   createUser(user: User) {
-    this.auth.createUserWithEmailAndPassword(user.email, user.password)
+    return from(this.auth.createUserWithEmailAndPassword(user.email, user.password)
       .then((userCredential) => {
-        this.router.navigate(['/book'])
+        return userCredential
       })
       .catch((error) => {
-        console.log(error.message)
-      });
+        throw new Error(error)
+      }))
   }
 
   logIn(user: User) {
-    this.auth.signInWithEmailAndPassword(user.email, user.password)
+    return from(this.auth.signInWithEmailAndPassword(user.email, user.password)
       .then((userCredential) => {
-        this.router.navigate(['/book'])
+        return userCredential
       })
       .catch((error) => {
-        console.log(error.message)
-      });
+        throw new Error(error)
+      }))
   }
 
   logOut() {
@@ -50,4 +52,7 @@ export class AuthService {
     this.router.navigate(['/'])
   }
 
+  openSnackBar(message: string) {
+    this._snackBar.open(message, 'OK');
+  }
 }

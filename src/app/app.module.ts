@@ -12,6 +12,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {ChartComponent} from './book/chart/chart.component';
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import {environment} from "../environments/environment";
     NotFoundComponent,
     LoginComponent,
     RegisterComponent,
-    ChartComponent
+    ChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +30,7 @@ import {environment} from "../environments/environment";
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSnackBarModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
