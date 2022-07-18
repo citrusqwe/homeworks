@@ -13,8 +13,41 @@
     text-decoration: none;
     color: #000000;
 
+    &.active {
+      font-weight: bold;
+    }
+
     &:not(:last-child) {
       margin-right: 10px;
+    }
+  }
+
+  &__links {
+    display: flex;
+  }
+
+
+}
+
+.header-user {
+  &__name {
+    margin-right: 8px;
+  }
+
+  &__btn {
+    padding: 7px 10px;
+    background: #8F07CF;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: filter 0.3s;
+
+    &:hover {
+      transition: filter 0.3s;
+      filter: opacity(0.8);
     }
   }
 }

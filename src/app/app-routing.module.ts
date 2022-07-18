@@ -4,15 +4,13 @@ import {NotFoundComponent} from "./not-found/not-found.component";
 import {LayoutComponent} from "./book/layout/layout.component";
 import {RegisterComponent} from "./auth/register/register.component";
 import {LoginComponent} from "./auth/login/login.component";
-import {ChartComponent} from "./chart/chart.component";
+import {ChartComponent} from "./book/chart/chart.component";
+import {TableComponent} from "./book/table/table.component";
+import {AngularFireAuthGuard, redirectUnauthorizedTo} from "@angular/fire/compat/auth-guard";
+
+const data = {authGuardPipe: () => redirectUnauthorizedTo(['/auth'])}
 
 const routes: Routes = [
-  {
-    path: 'book', component: LayoutComponent, loadChildren: () => import('./book/book.module').then(m => m.BookModule)
-  },
-  {
-    path: '', redirectTo: 'auth', pathMatch: 'full'
-  },
   {
     path: 'auth', children: [
       {path: 'register', component: RegisterComponent},
@@ -20,7 +18,15 @@ const routes: Routes = [
       {path: '', redirectTo: 'login', pathMatch: 'full'}
     ]
   },
-  {path: 'chart', component: ChartComponent},
+  {
+    path: '', redirectTo: 'auth', pathMatch: 'full'
+  },
+  {
+    path: 'book', component: LayoutComponent, loadChildren: () => import('./book/book.module').then(m => m.BookModule),
+    canActivate: [AngularFireAuthGuard], data
+  },
+  {path: 'table', component: TableComponent, canActivate: [AngularFireAuthGuard], data},
+  {path: 'chart', component: ChartComponent, canActivate: [AngularFireAuthGuard], data},
   {
     path: '**', component: NotFoundComponent
   },

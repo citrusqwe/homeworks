@@ -5,7 +5,6 @@ import {SecondPageComponent} from "./pages/second-page/second-page.component";
 import {ThirdPageComponent} from "./pages/third-page/third-page.component";
 import {FourthPageComponent} from "./pages/fourth-page/fourth-page.component";
 import {FifthPageComponent} from "./pages/fifth-page/fifth-page.component";
-import {TableComponent} from "./table/table.component";
 
 const routes: Routes = [
   {path: '1', component: FirstPageComponent},
@@ -13,7 +12,7 @@ const routes: Routes = [
   {path: '3', component: ThirdPageComponent},
   {path: '4', component: FourthPageComponent},
   {path: '5', component: FifthPageComponent},
-  {path: 'table', component: TableComponent},
+  {path: 'book', redirectTo: '/book/1', pathMatch: 'full'},
 ]
 
 @NgModule({

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {AssemblyApiResponse} from "../chart/chart.component";
+import {AssemblyApiResponse} from "../book/chart/chart.component";
 
 @Injectable({
   providedIn: 'root'

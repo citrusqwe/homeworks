@@ -23,8 +23,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.registerFormGroup)
-    this.authService.getDataFromYandex()
+    this.authService.createUser(this.registerFormGroup.value)
     this.registerFormGroup.reset()
   }
+
+
 }

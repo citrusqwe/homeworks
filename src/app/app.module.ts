@@ -9,7 +9,9 @@ import {LoginComponent} from './auth/login/login.component';
 import {RegisterComponent} from './auth/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import { ChartComponent } from './chart/chart.component';
+import {ChartComponent} from './book/chart/chart.component';
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { ChartComponent } from './chart/chart.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent]

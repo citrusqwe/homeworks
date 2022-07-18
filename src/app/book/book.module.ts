@@ -15,7 +15,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatSortModule} from "@angular/material/sort";
 import {MatButtonModule} from "@angular/material/button";
-import { DeepTableComponent } from './table/deep-table/deep-table.component';
+import {DeepTableComponent} from './table/deep-table/deep-table.component';
 
 
 @NgModule({
@@ -40,7 +40,7 @@ import { DeepTableComponent } from './table/deep-table/deep-table.component';
     MatSortModule,
     MatButtonModule
   ],
-  exports: [BookComponent]
+  exports: [BookComponent, HeaderComponent]
 })
 export class BookModule {
 }

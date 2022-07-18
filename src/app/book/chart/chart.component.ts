@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ChartService} from "../services/chart.service";
-import {Subscription} from "rxjs";
+import {ChartService} from "../../services/chart.service";
+import {mergeMap, Subscription, toArray} from "rxjs";
 import Chart from "chart.js/auto";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
@@ -32,7 +32,9 @@ export class ChartComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.assemblyDataSub = this.chartService.getAssemblyData()
-      .subscribe(({data}: AssemblyApiResponse) => {
+      .pipe(mergeMap(({data}) => data.reverse()))
+      .pipe(toArray())
+      .subscribe((data: AssemblyItem[]) => {
         const assemblyChart = new Chart(
           'assemblyChart', {
             type: 'line',

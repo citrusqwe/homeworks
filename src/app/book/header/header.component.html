@@ -1,8 +1,17 @@
 <header class="header">
-  <a class="header__link" routerLink="/">
+  <a class="header__link" routerLink="/book/1">
     <img src="../../../assets/logo.svg" alt="logo">
   </a>
-  <a class="header__link" routerLink="/book/table">
-    Table
-  </a>
+  <div class="header__links">
+    <a class="header__link" routerLink="/chart" routerLinkActive="active">
+      Chart
+    </a>
+    <a class="header__link" routerLink="/table" routerLinkActive="active">
+      Table
+    </a>
+  </div>
+  <div class="header__user header-user">
+    <span class="header-user__name">{{currentUser?.email}}</span>
+    <button class="header-user__btn" (click)="signOut()">Выйти</button>
+  </div>
 </header>

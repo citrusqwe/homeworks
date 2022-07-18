@@ -23,8 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginFormGroup)
-    this.authService.getDataFromYandex()
+    this.authService.logIn(this.loginFormGroup.value)
     this.loginFormGroup.reset()
   }
 
