@@ -21,6 +21,11 @@
           <input class="auth-form__input" id="password" type="password" formControlName="password">
         </label>
         <button class="auth-form__button" type="submit" [disabled]="loginFormGroup.invalid">Войти</button>
+        <div class="auth__providers auth-providers">
+          <p class="auth-providers__title">Or Log In With</p>
+          <button (click)="logInWithGoogle()" class="auth-providers__btn"><img src="./assets/google.svg" alt="google">
+          </button>
+        </div>
       </form>
     </div>
   </div>

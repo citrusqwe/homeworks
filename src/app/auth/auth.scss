@@ -115,3 +115,25 @@
   margin-top: 5px;
   color: #e13838;
 }
+
+.auth-providers {
+  &__title {
+    text-transform: capitalize;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: #fff;
+    padding: 7px;
+    border-radius: 8px;
+    transition: filter 0.3s;
+
+    &:hover {
+      transition: filter 0.3s;
+      filter: opacity(0.8);
+    }
+  }
+}

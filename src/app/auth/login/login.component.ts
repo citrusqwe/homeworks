@@ -39,6 +39,18 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.loginFormGroup.reset()
   }
 
+  logInWithGoogle() {
+    this.userSub = this.authService.signUpWithGoogle()
+      .pipe(catchError((err) => {
+        this.authService.openSnackBar(err)
+        return throwError(err);
+      }))
+      .subscribe(
+        user =>
+          this.router.navigate(['/book'])
+      )
+  }
+
   ngOnDestroy() {
     this.userSub?.unsubscribe()
   }

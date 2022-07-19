@@ -36,6 +36,18 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.registerFormGroup.reset()
   }
 
+  signUpWithGoogle() {
+    this.userSub = this.authService.signUpWithGoogle()
+      .pipe(catchError((err) => {
+        this.authService.openSnackBar(err)
+        return throwError(err);
+      }))
+      .subscribe(
+        user =>
+          this.router.navigate(['/book'])
+      )
+  }
+
   ngOnInit(): void {
 
   }

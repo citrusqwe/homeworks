@@ -28,6 +28,11 @@
         </label>
         <button class="auth-form__button" type="submit" [disabled]="registerFormGroup.invalid">Зарегистрироваться
         </button>
+        <div class="auth__providers auth-providers">
+          <p class="auth-providers__title">Or Sign Up With</p>
+          <button (click)="signUpWithGoogle()" class="auth-providers__btn"><img src="./assets/google.svg" alt="google">
+          </button>
+        </div>
       </form>
     </div>
   </div>

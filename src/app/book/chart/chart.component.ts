@@ -3,6 +3,8 @@ import {ChartService} from "../../services/chart.service";
 import {mergeMap, Subscription, toArray} from "rxjs";
 import Chart from "chart.js/auto";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import {ActivatedRoute} from "@angular/router";
+import {RightsService} from "../../services/rights.service";
 
 export interface AssemblyItem {
   "dt_date": string,
@@ -27,7 +29,7 @@ export interface AssemblyApiResponse {
 export class ChartComponent implements OnInit, OnDestroy {
   assemblyDataSub: Subscription | null = null
 
-  constructor(private chartService: ChartService) {
+  constructor(private chartService: ChartService, private route: ActivatedRoute, private rightsService: RightsService) {
   }
 
   ngOnInit(): void {
